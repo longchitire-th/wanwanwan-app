@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>วุ่นวายโภชนา - รายรับจ่าย</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:sans-serif;background:#111;color:#eee;padding:60px 10px 80px}
+.h{position:fixed;top:0;left:0;right:0;background:linear-gradient(90deg,#ff6b00,#ffcc00);padding:12px;text-align:center;z-index:10}
+.h h1{font-size:1.1rem;color:#000}
+.s{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
+.c{background:#1e1e2a;border-radius:10px;padding:12px;text-align:center}
+.c .l{font-size:.7rem;color:#888;margin-bottom:4px}
+.c .v{font-size:1.2rem;font-weight:700}
+.c.i .v{color:#0f0}.c.e .v{color:#f44}.c.p .v{color:#fc0}
+.b{background:#1e1e2a;border-radius:12px;padding:14px;margin-bottom:12px;text-align:center}
+.b .a{font-size:1.6rem;font-weight:900}
+.b .a.g{color:#0f0}.b .a.r{color:#f44}
+.t{display:flex;gap:6px;margin-bottom:12px;overflow-x:auto}
+.tb{padding:8px 14px;border-radius:8px;background:#1e1e2a;color:#888;font-size:.8rem;white-space:nowrap;border:none;cursor:pointer}
+.tb.ac{background:#ff6b00;color:#fff}
+.f{background:#1e1e2a;border-radius:12px;padding:14px;margin-bottom:12px}
+.f h3{font-size:.9rem;color:#fc0;margin-bottom:10px}
+.i-g{margin-bottom:8px}
+.i-g label{display:block;font-size:.7rem;color:#888;margin-bottom:3px}
+.i-g input,.i-g select{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#2a2a3a;color:#fff;font-size:16px}
+.b-t{width:100%;padding:12px;border-radius:10px;border:none;background:linear-gradient(90deg,#ff6b00,#ff9500);color:#fff;font-size:1rem;font-weight:700;cursor:pointer}
+.e-l{display:flex;flex-direction:column;gap:6px}
+.e-n{background:#1e1e2a;border-radius:10px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center}
+.e-n .d{font-size:.85rem;font-weight:600}
+.e-n .c-t{font-size:.65rem;color:#888}
+.e-n .a-m{font-weight:700}
+.e-n.in .a-m{color:#0f0}.e-n.ex .a-m{color:#f44}
+.d-b{background:#f44;color:#fff;border:none;padding:4px 10px;border-radius:5px;font-size:.7rem;cursor:pointer}
+.n-b{position:fixed;bottom:0;left:0;right:0;background:#1e1e2a;display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid #333}
+.n-b button{padding:10px;background:none;border:none;color:#888;font-size:.7rem;cursor:pointer}
+.n-b button.ac{color:#ff6b00}
+.hid{display:none}
+</style>
+</head>
+<body>
+<div class="h"><h1>🍜 วุ่นวายโภชนา</h1></div>
+
+<div class="b" id="bn">
+  <div class="a g" id="pa">0 ฿</div>
+  <div style="font-size:.75rem;color:#888;margin-top:4px">กำไรสุทธิเดือนนี้</div>
+</div>
+
+<div class="s">
+  <div class="c i"><div class="l">รายรับ</div><div class="v" id="ti">0</div></div>
+  <div class="c e"><div class="l">รายจ่าย</div><div class="v" id="te">0</div></div>
+  <div class="c p"><div class="l">กำไร%</div><div class="v" id="pp">0%</div></div>
+</div>
+
+<div class="t">
+  <button class="tb ac" data-t="a">➕ เพิ่ม</button>
+  <button class="tb" data-t="l">📋 รายการ</button>
+  <button class="tb" data-t="s">📈 สรุป</button>
+</div>
+
+<div id="t-a">
+  <div class="f">
+    <h3>➕ เพิ่มรายการ</h3>
+    <div class="i-g"><label>วันที่</label><input type="date" id="d"></div>
+    <div class="i-g"><label>ประเภท</label>
+      <select id="tp"><option value="in">รายรับ (ขายก๋วยเตี๋ยว)</option><option value="ex">รายจ่าย (ซื้อของ)</option></select>
+    </div>
+    <div class="i-g"><label>รายการ</label><input type="text" id="ds" placeholder="เช่น ส่งก๋วยเตี๋ยว,ค่าผัก,ค่ากล่อง"></div>
+    <div class="i-g"><label>จำนวน (บาท)</label><input type="number" id="am" placeholder="0"></div>
+    <div class="i-g"><label>หมวด</label>
+      <select id="ct">
+        <option value="ขายอาหาร">ขายอาหาร</option>
+        <option value="วัตถุดิบ">วัตถุดิบ</option>
+        <option value="กล่องถุง">กล่อง/ถุง</option>
+        <option value="ค่าส่ง">ค่าส่ง/รถ</option>
+        <option value="อื่นๆ">อื่นๆ</option>
+      </select>
+    </div>
+    <button class="b-t" onclick="ad()">💾 บันทึก</button>
+  </div>
+</div>
+
+<div id="t-l" class="hid"><div id="el" class="e-l"></div></div>
+<div id="t-s" class="hid"><div id="ms"></div></div>
+
+<div class="n-b">
+  <button class="ac" onclick="sh('a')">➕ เพิ่ม</button>
+  <button onclick="sh('l')">📋 รายการ</button>
+  <button onclick="sh('s')">📈 สรุป</button>
+</div>
+
+<script>
+const K='www_data',M=['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+let D=JSON.parse(localStorage.getItem(K)||'[]');
+const $=i=>document.getElementById(i);
+const f=n=>n.toLocaleString('th-TH');
+const dk=()=>new Date().toISOString().slice(0,10);
+const mk=d=>{const x=new Date(d);return`${x.getFullYear()}-${x.getMonth()}`};
+const ml=k=>{const[y,m]=k.split('-');return`${M[+m]} ${+y+543}`};
+
+function ad(){
+  const d=$('d').value,t=$('tp').value,ds=$('ds').value.trim()||'-',a=+$('am').value||0,c=$('ct').value;
+  if(!d||!a){alert('กรอกวันที่และจำนวน');return}
+  D.unshift({id:Date.now(),d,t,ds,a,c});
+  localStorage.setItem(K,JSON.stringify(D));
+  $('ds').value='';$('am').value='';rv();sh('l');
+}
+
+function dl(i){D=D.filter(x=>x.id!==i);localStorage.setItem(K,JSON.stringify(D));rv()}
+
+function rv(){
+  const n=new Date(),ck=`${n.getFullYear()}-${n.getMonth()}`;
+  let ti=0,te=0;
+  D.forEach(x=>{if(mk(x.d)===ck){if(x.t==='in')ti+=x.a;else te+=x.a}});
+  const p=ti-te;
+  $('ti').textContent=f(ti);$('te').textContent=f(te);
+  $('pa').textContent=(p>=0?'+':'')+f(p)+' ฿';
+  $('pa').className='a '+(p>=0?'g':'r');
+  $('bn').className='b'+(p<0?' style="background:#2a1515"':'');
+  $('pp').textContent=ti>0?Math.round(p/ti*100)+'%':'0%';
+
+  const ob=D.slice(0,50);
+  $('el').innerHTML=ob.map(x=>`<div class="e-n ${x.t==='in'?'in':'ex'}">
+    <div><div class="d">${x.ds}</div><div class="c-t">${x.c} · ${x.d}</div></div>
+    <div style="display:flex;align-items:center;gap:6px">
+      <div class="a-m">${x.t==='in'?'+':'-'}${f(x.a)}</div>
+      <button class="d-b" onclick="dl(${x.id})">ลบ</button>
+    </div>
+  </div>`).join('')||'<div style="text-align:center;color:#666;padding:20px">ยังไม่มีรายการ</div>';
+
+  const mb={};D.forEach(x=>{const k=mk(x.d);if(!mb[k])mb[k]={i:0,e:0};mb[k][x.t==='in'?'i':'e']+=x.a});
+  const sm=Object.entries(mb).sort((a,b)=>a[0].localeCompare(b[0]));
+  $('ms').innerHTML=sm.map(([k,v])=>{
+    const p=v.i-v.e;return`<div class="e-n">
+      <div><div class="d">${ml(k)}</div><div class="c-t">รายรับ ${f(v.i)} · รายจ่าย ${f(v.e)}</div></div>
+      <div class="a-m" style="color:${p>=0?'#0f0':'#f44'}">${p>=0?'+':''}${f(p)}</div>
+    </div>`;
+  }).join('')||'<div style="text-align:center;color:#666;padding:20px">ยังไม่มีข้อมูล</div>';
+}
+
+function sh(t){
+  ['a','l','s'].forEach(x=>{$(`t-${x}`).classList.toggle('hid',x!==t);document.querySelector(`.tb[data-t="${x}"]`).classList.toggle('ac',x===t)});
+  document.querySelectorAll('.n-b button').forEach((b,i)=>b.classList.toggle('ac',['a','l','s'][i]===t));
+}
+
+document.querySelectorAll('.tb').forEach(b=>b.addEventListener('click',()=>sh(b.dataset.t)));
+$('d').value=dk();
+rv();
+</script>
+</body>
+</html>
