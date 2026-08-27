@@ -53,6 +53,10 @@ public class MainActivity extends Activity {
         @JavascriptInterface public void signIn() {
             runOnUiThread(() -> startActivityForResult(googleClient.getSignInIntent(), SIGN_IN_REQUEST));
         }
+
+        @JavascriptInterface public void signOut() {
+            runOnUiThread(() -> googleClient.signOut());
+        }
     }
 
     @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
