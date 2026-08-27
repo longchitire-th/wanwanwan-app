@@ -19,8 +19,13 @@ jobs:
           gradle-version: '8.10.2'
       - name: Prepare app icon
         run: mkdir -p android/app/src/main/res/drawable && cp logo-wanwan.png android/app/src/main/res/drawable/logo_wanwan.png
+      - name: Prepare Android signing key
+        run: echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > android/wanwan-release.p12
       - name: Build APK
         working-directory: android
+        env:
+          WANWAN_STORE_PASSWORD: ${{ secrets.WANWAN_STORE_PASSWORD }}
+          WANWAN_KEY_PASSWORD: ${{ secrets.WANWAN_KEY_PASSWORD }}
         run: gradle assembleRelease
       - name: Rename APK
         run: cp android/app/build/outputs/apk/release/app-release.apk wanwanwan.apk
