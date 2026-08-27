@@ -28,6 +28,10 @@ public class MainActivity extends Activity {
         super.onCreate(state);
         webView = new WebView(this);
         setContentView(webView);
+        webView.setOnApplyWindowInsetsListener((view, insets) -> {
+            view.setPadding(0, 0, 0, insets.getSystemWindowInsetBottom());
+            return insets;
+        });
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
