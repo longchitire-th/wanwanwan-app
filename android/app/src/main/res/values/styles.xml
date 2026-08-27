@@ -3,6 +3,9 @@
         <item name="android:fontFamily">sans</item>
         <item name="android:colorAccent">#ff6b00</item>
         <item name="android:navigationBarColor">#1d1d28</item>
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">#ff6b00</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>

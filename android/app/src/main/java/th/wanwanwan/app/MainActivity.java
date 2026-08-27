@@ -2,7 +2,9 @@ package th.wanwanwan.app;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
@@ -26,12 +28,12 @@ public class MainActivity extends Activity {
 
     @Override public void onCreate(Bundle state) {
         super.onCreate(state);
+        getWindow().setNavigationBarColor(Color.rgb(29, 29, 40));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            getWindow().setNavigationBarContrastEnforced(true);
+        }
         webView = new WebView(this);
         setContentView(webView);
-        webView.setOnApplyWindowInsetsListener((view, insets) -> {
-            view.setPadding(0, 0, 0, insets.getSystemWindowInsetBottom());
-            return insets;
-        });
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
