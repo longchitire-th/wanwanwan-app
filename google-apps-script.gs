@@ -24,11 +24,16 @@ function verifyUser_(idToken) {
     const profile = JSON.parse(response.getContentText());
     const email = String(profile.email || '').toLowerCase();
     const verified = profile.email_verified === true || profile.email_verified === 'true';
-    const validAudience = profile.aud === GOOGLE_CLIENT_ID;
     const validExpiry = Number(profile.exp || 0) * 1000 > Date.now();
-    if (!verified || !validAudience || !validExpiry || ALLOWED_EMAILS.indexOf(email) < 0) return {ok: false, error: 'ACCESS_DENIED'};
+    // Android และหน้าเว็บอาจได้รับ Token ที่มี audience คนละ OAuth client
+    // จึงยืนยันจากลายเซ็น Google ผ่าน tokeninfo + อีเมลที่อนุญาตแทน
+    if (!verified || !validExpiry || ALLOWED_EMAILS.indexOf(email) < 0) return {ok: false, error: 'ACCESS_DENIED'};
     return {ok: true, email: email};
   } catch (error) { return {ok: false, error: 'LOGIN_EXPIRED'}; }
+}
+
+function authorizeGoogleLogin() {
+  return UrlFetchApp.fetch('https://oauth2.googleapis.com/tokeninfo?id_token=invalid', {muteHttpExceptions: true}).getResponseCode();
 }
 
 function doGet(event) {
