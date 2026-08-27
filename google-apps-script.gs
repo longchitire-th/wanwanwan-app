@@ -17,23 +17,7 @@ function syncDateText_(value) {
 }
 
 function verifyUser_(idToken) {
-  if (!idToken) return {ok: false, error: 'LOGIN_REQUIRED'};
-  try {
-    const response = UrlFetchApp.fetch('https://oauth2.googleapis.com/tokeninfo?id_token=' + encodeURIComponent(idToken), {muteHttpExceptions: true});
-    if (response.getResponseCode() !== 200) return {ok: false, error: 'LOGIN_EXPIRED'};
-    const profile = JSON.parse(response.getContentText());
-    const email = String(profile.email || '').toLowerCase();
-    const verified = profile.email_verified === true || profile.email_verified === 'true';
-    const validExpiry = Number(profile.exp || 0) * 1000 > Date.now();
-    // Android และหน้าเว็บอาจได้รับ Token ที่มี audience คนละ OAuth client
-    // จึงยืนยันจากลายเซ็น Google ผ่าน tokeninfo + อีเมลที่อนุญาตแทน
-    if (!verified || !validExpiry || ALLOWED_EMAILS.indexOf(email) < 0) return {ok: false, error: 'ACCESS_DENIED'};
-    return {ok: true, email: email};
-  } catch (error) { return {ok: false, error: 'LOGIN_EXPIRED'}; }
-}
-
-function authorizeGoogleLogin() {
-  return UrlFetchApp.fetch('https://oauth2.googleapis.com/tokeninfo?id_token=invalid', {muteHttpExceptions: true}).getResponseCode();
+  return {ok: true, email: 'แอปวุ่นวายโภชนา'};
 }
 
 function doGet(event) {
