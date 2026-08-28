@@ -22,8 +22,10 @@ function verifyUser_(idToken) {
 
 function doGet(event) {
   try {
-    const user = verifyUser_(event && event.parameter && event.parameter.idToken);
+    const params = event && event.parameter ? event.parameter : {};
+    const user = verifyUser_(params.idToken);
     if (!user.ok) return syncJson_(user);
+    if (params.action === 'add') return addTransaction_(params, user);
     const sheet = SpreadsheetApp.openById(SYNC_SHEET_ID).getSheetByName(SYNC_SHEET_NAME);
     const lastRow = sheet.getLastRow();
     if (lastRow < 2) return syncJson_({ok: true, rows: []});
@@ -37,13 +39,10 @@ function doGet(event) {
   } catch (error) { return syncJson_({ok: false, error: String(error)}); }
 }
 
-function doPost(event) {
+function addTransaction_(input, user) {
   const lock = LockService.getScriptLock();
   try {
     lock.waitLock(10000);
-    const input = JSON.parse(event.postData.contents || '{}');
-    const user = verifyUser_(input.idToken);
-    if (!user.ok) return syncJson_(user);
     if (!input.date || !input.type || !input.description || !(Number(input.amount) > 0)) return syncJson_({ok: false, error: 'ข้อมูลไม่ครบ'});
     const sheet = SpreadsheetApp.openById(SYNC_SHEET_ID).getSheetByName(SYNC_SHEET_NAME);
     const row = sheet.getLastRow() + 1;
@@ -52,4 +51,13 @@ function doPost(event) {
     return syncJson_({ok: true, id: id});
   } catch (error) { return syncJson_({ok: false, error: String(error)}); }
   finally { lock.releaseLock(); }
+}
+
+function doPost(event) {
+  try {
+    const input = JSON.parse(event.postData.contents || '{}');
+    const user = verifyUser_(input.idToken);
+    if (!user.ok) return syncJson_(user);
+    return addTransaction_(input, user);
+  } catch (error) { return syncJson_({ok: false, error: String(error)}); }
 }
