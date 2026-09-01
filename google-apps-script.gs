@@ -46,12 +46,12 @@ function addTransaction_(input, user) {
     if (!input.date || !input.type || !input.description || !(Number(input.amount) > 0)) return syncJson_({ok: false, error: 'ข้อมูลไม่ครบ'});
     const sheet = SpreadsheetApp.openById(SYNC_SHEET_ID).getSheetByName(SYNC_SHEET_NAME);
     // Column A contains pre-filled ID formulas, so getLastRow() points near the
-    // bottom of the template. Find the first truly empty transaction row from
-    // the date column instead and leave the ID formula in column A intact.
+    // bottom of the template. Find the last real transaction from the date
+    // column and always append after it, leaving the ID formula intact.
     const firstDataRow = 2;
     const dateValues = sheet.getRange(firstDataRow, 2, sheet.getMaxRows() - 1, 1).getValues();
-    const emptyOffset = dateValues.findIndex(value => !value[0]);
-    const row = emptyOffset === -1 ? sheet.getMaxRows() + 1 : firstDataRow + emptyOffset;
+    const lastDataOffset = dateValues.reduce((last, value, index) => value[0] ? index : last, -1);
+    const row = firstDataRow + lastDataOffset + 1;
     if (row > sheet.getMaxRows()) sheet.insertRowAfter(sheet.getMaxRows());
     sheet.getRange(row, 2, 1, 9).setValues([[
       input.date, input.type, input.category || 'อื่น ๆ', input.description,
