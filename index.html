@@ -1,42 +1,482 @@
-<!DOCTYPE html><html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ff6b00"><title>วุ่นวายโภชนา - รายรับจ่าย</title><link rel="icon" href="logo-wanwan.png?v=logo2"><style>
-*{box-sizing:border-box}body{margin:0;background:#111116;color:#eee;font-family:system-ui,-apple-system,"Noto Sans Thai",sans-serif;padding:72px 12px calc(88px + env(safe-area-inset-bottom))}.head{position:fixed;inset:0 0 auto;background:linear-gradient(100deg,#ff6b00,#ffc400);height:58px;display:flex;align-items:center;justify-content:center;gap:9px;z-index:10;box-shadow:0 5px 20px #0007}.head img{width:48px;height:48px;object-fit:cover;border-radius:50%;border:2px solid #ffe197;box-shadow:0 2px 8px #5b160077}.head h1{font-size:18px;line-height:1.05;color:#17120b;margin:0}.head small{display:block;color:#64220f;font-size:9px;margin-top:3px}.wrap{max-width:720px;margin:auto}.hero,.card{background:#1d1d28;border:1px solid #2c2c39;border-radius:16px;padding:16px;margin-bottom:12px}.hero{text-align:center}.hero .amount{font-size:34px;font-weight:900}.green{color:#51e59a}.red{color:#ff6868}.muted{color:#9494a4;font-size:12px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}.stat{background:#1d1d28;border-radius:13px;padding:13px;text-align:center}.stat b{display:block;font-size:19px;margin-top:3px}.tabs{display:flex;gap:7px;overflow:auto;margin-bottom:12px;scrollbar-width:none}.tab{border:0;background:#1d1d28;color:#999;padding:10px 15px;border-radius:10px;white-space:nowrap;font-weight:700}.tab.active{background:#ff6b00;color:#fff}.view{display:none}.view.active{display:block}.card h2{font-size:15px;color:#ffc928;margin:0 0 13px}.field{margin-bottom:10px}.field label{display:block;color:#aaa;font-size:12px;margin-bottom:4px}.field input,.field select{width:100%;padding:12px;border:1px solid #383847;border-radius:10px;background:#292937;color:#fff;font-size:16px}.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.save{width:100%;padding:13px;border:0;border-radius:11px;background:linear-gradient(90deg,#ff6b00,#ff9500);color:#fff;font-size:16px;font-weight:800}.list{display:flex;flex-direction:column;gap:7px}.item{background:#1d1d28;border-radius:11px;padding:11px 12px;display:grid;grid-template-columns:1fr auto auto;gap:9px;align-items:center}.item b{font-size:14px}.item small{display:block;color:#858594;margin-top:2px}.money{font-weight:800}.del{border:0;border-radius:7px;padding:6px 8px;background:#54262a;color:#ff9c9c}.empty{text-align:center;color:#777;padding:30px}.dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.dash-card{background:#1d1d28;border-radius:14px;padding:14px}.dash-card span{font-size:11px;color:#9292a0}.dash-card strong{display:block;font-size:22px;margin-top:5px}.dash-card.wide{grid-column:1/-1}.bar-row{display:grid;grid-template-columns:90px 1fr 65px;align-items:center;gap:8px;margin:10px 0;font-size:12px}.bar{height:8px;background:#30303c;border-radius:8px;overflow:hidden}.bar i{display:block;height:100%;background:#ff8c35;border-radius:8px}.tip{margin-top:12px;padding:12px;border-radius:12px;background:#28251c;border-left:3px solid #ffc928;font-size:12px;color:#d7d0b3}.idea-title{margin:2px 2px 12px}.idea-title h2{margin:0;color:#ffc928;font-size:18px}.idea-title p{margin:3px 0;color:#9292a0;font-size:12px}.idea-tools{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#1d1d28;border:1px solid #2c2c39;border-radius:14px;padding:12px;margin-bottom:10px}.idea-tools p{margin:0;font-size:12px;color:#aaa}.random-btn{border:0;border-radius:10px;background:linear-gradient(90deg,#ff6b00,#ff9d00);color:#fff;font-weight:800;padding:11px 14px;white-space:nowrap}.ideas{display:grid;grid-template-columns:1fr 1fr;gap:9px}.idea{background:#1d1d28;border:1px solid #2c2c39;border-radius:14px;padding:14px;text-align:left;color:#eee;cursor:pointer;min-height:96px;width:100%}.idea:hover,.idea:focus{border-color:#ff8a20;transform:translateY(-1px)}.idea h3{font-size:14px;margin:0 0 8px}.idea p{font-size:11px;color:#9292a0;margin:0;line-height:1.5}.idea .tag{display:inline-block;margin-top:9px;padding:3px 7px;background:#332b1d;color:#ffc928;border-radius:20px;font-size:10px}.recipe-modal{display:none;position:fixed;inset:0;background:#000b;z-index:30;padding:18px;overflow:auto}.recipe-modal.open{display:flex;align-items:flex-start;justify-content:center}.recipe-box{background:#1d1d28;border:1px solid #3a3a48;border-radius:18px;width:min(620px,100%);margin:auto;padding:20px;position:relative}.recipe-close{position:absolute;right:12px;top:12px;border:0;background:#343440;color:#fff;border-radius:50%;width:34px;height:34px;font-size:18px}.recipe-box h2{color:#ffc928;margin:0 42px 3px 0}.recipe-country{color:#999;font-size:12px}.recipe-box h3{font-size:14px;margin:20px 0 8px;color:#ff9d45}.recipe-box ul,.recipe-box ol{padding-left:22px;margin:0}.recipe-box li{margin:7px 0;line-height:1.55;font-size:14px}.bottom{position:fixed;inset:auto 0 0;background:#1d1d28;border-top:1px solid #333;display:grid;grid-template-columns:repeat(5,1fr);z-index:10;padding-bottom:env(safe-area-inset-bottom)}.bottom button{border:0;background:none;color:#858594;padding:10px 1px;font-size:10px}.bottom button.active{color:#ff7a18}.bottom b{display:block;font-size:19px;margin-bottom:2px}@media(max-width:480px){body{padding-left:9px;padding-right:9px}.row2{grid-template-columns:1fr}.stats .stat{padding:11px 5px}.stats .stat b{font-size:17px}.item{grid-template-columns:1fr auto}.item .del{grid-column:2}.bar-row{grid-template-columns:75px 1fr 58px}.ideas{grid-template-columns:1fr}.idea-tools{align-items:flex-start}.random-btn{padding:10px}}
-</style><style>.report-filter{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}.report-filter select{width:100%;padding:11px;border:1px solid #383847;border-radius:10px;background:#292937;color:#fff;font-size:14px}.report-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}.report-kpi{background:#1d1d28;border-radius:13px;padding:12px;text-align:center}.report-kpi span{display:block;color:#8e8e9d;font-size:10px}.report-kpi b{display:block;font-size:17px;margin-top:4px}.compare{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}.compare-box{background:#1d1d28;border-radius:13px;padding:12px}.compare-box span{font-size:10px;color:#9292a0}.compare-box b{display:block;margin-top:4px}.report-section{background:#1d1d28;border-radius:14px;padding:14px;margin-bottom:10px}.report-section h3{font-size:13px;color:#ffc928;margin:0 0 10px}.report-table{width:100%;border-collapse:collapse;font-size:11px}.report-table th{color:#8f8f9d;text-align:right;padding:7px 4px;border-bottom:1px solid #333}.report-table th:first-child,.report-table td:first-child{text-align:left}.report-table td{text-align:right;padding:8px 4px;border-bottom:1px solid #292936}.up{color:#51e59a}.down{color:#ff6868}@media(max-width:480px){.report-kpis{grid-template-columns:1fr}.report-kpi{text-align:left}.report-filter,.compare{grid-template-columns:1fr}}</style></head><body><header class="head"><img src="logo-wanwan.png" alt="โลโก้วุ่นวายโภชนา"><div><h1>วุ่นวายโภชนา</h1><small>อร่อยจนวุ่นวาย</small></div></header><div class="wrap">
-<section class="hero"><div class="amount green" id="balance">+0 ฿</div><div class="muted">เงินคงเหลือเดือนนี้</div></section><section class="stats"><div class="stat"><span class="muted">รายรับ</span><b class="green" id="income">0</b></div><div class="stat"><span class="muted">รายจ่าย</span><b class="red" id="expense">0</b></div><div class="stat"><span class="muted">เหลือ %</span><b id="margin">0%</b></div></section>
-<script src="https://accounts.google.com/gsi/client" async defer></script><script>document.body.classList.add('locked')</script><style>.login-screen{position:fixed;inset:0;z-index:100;background:radial-gradient(circle at top,#482006 0,#111116 45%);display:flex;align-items:center;justify-content:center;padding:22px}.login-card{width:min(390px,100%);background:#1d1d28;border:1px solid #383847;border-radius:22px;padding:26px;text-align:center;box-shadow:0 24px 70px #0009}.login-card img{width:110px;height:110px;border-radius:50%;border:3px solid #ffc928}.login-card h1{color:#ffc928;margin:14px 0 4px}.login-card p{color:#aaa;font-size:13px;line-height:1.6;margin:0 0 18px}.native-login{display:none;width:100%;border:1px solid #ddd;border-radius:8px;padding:12px;background:#fff;color:#222;font-size:15px;font-weight:700}.login-error{color:#ff7777;font-size:12px;min-height:18px;margin-top:12px}.locked .head,.locked .wrap,.locked .bottom{visibility:hidden}.logout{border:0;background:#54262a;color:#ffb0b0;border-radius:8px;padding:7px 9px;font-size:11px;margin-left:auto}.auth-email{font-size:10px;color:#154e35;max-width:145px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}</style><section class="login-screen" id="loginScreen"><div class="login-card"><img src="logo-wanwan.png" alt="โลโก้วุ่นวายโภชนา"><h1>วุ่นวายโภชนา</h1><p>เข้าสู่ระบบด้วยบัญชี Google<br>เฉพาะผู้ที่ได้รับอนุญาตเท่านั้น</p><div id="googleButton"></div><button class="native-login" id="nativeLogin" onclick="AndroidAuth.signIn()">เข้าสู่ระบบด้วย Google</button><div class="login-error" id="loginError"></div></div></section><style>.bottom{grid-template-columns:repeat(6,1fr)}.bottom button,.bottom a{border:0;background:none;color:#858594;padding:10px 1px;font-size:10px;text-decoration:none;text-align:center;font-family:inherit}.bottom a b{display:block;font-size:19px;margin-bottom:2px}.sheet-tab{border:1px solid #315c45!important;color:#65eaa8!important;background:#182b23!important}.sheet-link{color:#65eaa8!important}.sync-box{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;margin-bottom:12px;border-radius:12px;background:#18231f;border:1px solid #29483a}.sync-status{font-size:11px;color:#9fb7ab}.sync-status b{display:block;color:#67e6a5;font-size:12px;margin-bottom:2px}.sync-btn{border:0;border-radius:9px;padding:9px 11px;background:#315c45;color:#d9ffec;font-weight:800;white-space:nowrap}.sync-btn:disabled{opacity:.55}@media(max-width:480px){.bottom button,.bottom a{font-size:9px}}</style>
-<style>.locked .login-screen{visibility:visible!important}</style><div class="tabs"><button class="tab active" data-page="add">➕ เพิ่มรายการ</button><button class="tab" data-page="dashboard">📊 Dashboard</button><button class="tab" data-page="report">📈 รีพอร์ต</button><button class="tab" data-page="ideas">🍜 เมนูเส้นไอเดีย</button><a class="tab sheet-tab" href="https://docs.google.com/spreadsheets/d/1Jdw2KQM18-dLCYWxu9hw0xzxXjzX2Qx2N3Wpa8qvWdc/edit?usp=drivesdk" target="_blank" rel="noopener">🗂️ เปิดหลังบ้าน</a></div>
-<div class="sync-box"><div class="sync-status"><b id="syncTitle">กำลังเชื่อมต่อข้อมูลหลังบ้าน…</b><span id="syncDetail">ข้อมูลสำรองยังเปิดดูได้แม้เน็ตหลุด</span><span id="authEmail"></span></div><button class="sync-btn" id="syncBtn" onclick="syncFromSheet(true)">🔄 อัปเดต</button></div>
-<main id="add" class="view active"><section class="card"><h2>บันทึกรายการวันนี้</h2><div class="field"><label>วันที่</label><input type="date" id="date"></div><div class="row2"><div class="field"><label>ประเภท</label><select id="type"><option value="in">รายรับ</option><option value="ex">รายจ่าย</option></select></div><div class="field"><label>หมวด</label><select id="category"><option>ขายอาหาร</option><option>วัตถุดิบ</option><option>กล่อง/ถุง</option><option>ค่าส่ง/ค่ารถ</option><option>ค่าใช้จ่ายส่วนตัว</option><option>อื่น ๆ</option></select></div></div><div class="field"><label>รายการ</label><input id="description" placeholder="เช่น ส่งก๋วยเตี๋ยว, หมู, ผัก, ค่ารถ"></div><div class="field"><label>จำนวนเงิน (บาท)</label><input type="number" id="amount" inputmode="decimal" placeholder="0"></div><button class="save" id="saveBtn" onclick="addEntry()">💾 บันทึกลงหลังบ้าน</button></section></main>
-<style>.cat-button{width:100%;border:0;background:none;color:#eee;padding:2px 0;cursor:pointer;text-align:left}.cat-button:hover .bar,.cat-button:focus .bar{outline:2px solid #ff8c35}.cat-button .bar-row{margin:8px 0}.category-detail{display:none;margin-top:13px;padding:13px;background:#15151d;border:1px solid #3b3b49;border-radius:12px}.category-detail.open{display:block}.category-detail h3{margin:0 0 4px;color:#ffc928;font-size:14px}.category-detail>p{margin:0 0 9px;color:#999;font-size:11px}.detail-line{display:grid;grid-template-columns:1fr auto;gap:10px;padding:8px 0;border-bottom:1px solid #292936;font-size:12px}.detail-line:last-child{border-bottom:0}.detail-line b{color:#ff9a61}</style>
-<main id="dashboard" class="view"><div class="dash-grid"><div class="dash-card"><span>ยอดขายวันนี้</span><strong class="green" id="todayIncome">0 ฿</strong></div><div class="dash-card"><span>จ่ายวันนี้</span><strong class="red" id="todayExpense">0 ฿</strong></div><div class="dash-card"><span>วันที่มีรายรับ</span><strong id="saleDays">0 วัน</strong></div><div class="dash-card"><span>รายรับเฉลี่ย/วัน</span><strong id="avgIncome">0 ฿</strong></div><div class="dash-card wide"><span>ค่าใช้จ่ายเดือนนี้ แยกตามหมวด — แตะเพื่อดูว่าซื้ออะไร</span><div id="categoryBars"></div><div class="category-detail" id="dashboardCategoryDetail"><h3 id="categoryDetailTitle"></h3><p id="categoryDetailSummary"></p><div id="categoryDetailRows"></div></div></div></div><div class="tip" id="dailyTip">💡 เริ่มบันทึกรายรับและรายการจ่ายทุกวัน เพื่อให้เห็นกำไรจริงของร้าน</div></main>
-<main id="report" class="view"><div class="idea-title"><h2>📈 รีพอร์ตรับ–จ่าย</h2><p>ดูย้อนหลัง เปรียบเทียบ และตรวจว่ารับ–จ่ายมาจากรายการใด</p></div><div class="report-filter"><select id="reportGroup" onchange="renderReport(true)"><option value="day">รายวัน</option><option value="week">รายสัปดาห์</option><option value="month" selected>รายเดือน</option><option value="quarter">รายไตรมาส</option><option value="year">รายปี</option></select><select id="reportPeriod" onchange="renderReport()"></select></div><div class="report-kpis"><div class="report-kpi"><span>รายรับ</span><b class="green" id="reportIncome">0</b></div><div class="report-kpi"><span>รายจ่าย</span><b class="red" id="reportExpense">0</b></div><div class="report-kpi"><span>คงเหลือ</span><b id="reportBalance">0</b></div></div><div class="compare"><div class="compare-box"><span>เทียบงวดก่อน</span><b id="previousCompare">—</b></div><div class="compare-box"><span>เทียบช่วงเดียวกันปีก่อน</span><b id="yearCompare">—</b></div></div><section class="report-section"><h3>ค่าใช้จ่ายแยกตามประเภท</h3><div id="reportCategories"></div></section><section class="report-section"><h3>💚 รายรับมาจากอะไร</h3><div style="overflow:auto"><table class="report-table"><thead><tr><th>รายการ</th><th>จำนวนครั้ง</th><th>ยอดรวม</th></tr></thead><tbody id="reportIncomeItems"></tbody></table></div></section><section class="report-section"><h3>🔴 รายจ่ายไปกับอะไร</h3><div style="overflow:auto"><table class="report-table"><thead><tr><th>รายการ</th><th>หมวด</th><th>ยอดรวม</th></tr></thead><tbody id="reportExpenseItems"></tbody></table></div></section><section class="report-section"><h3>สรุปย้อนหลัง</h3><div style="overflow:auto"><table class="report-table"><thead><tr><th>ช่วงเวลา</th><th>รายรับ</th><th>รายจ่าย</th><th>คงเหลือ</th></tr></thead><tbody id="reportRows"></tbody></table></div></section></main><main id="ideas" class="view"><div class="idea-title"><h2>🍜 เมนูเส้นไอเดียทั่วโลก</h2><p>สุ่ม 8 เมนูสำหรับช่วยตัดสินใจ กดเมนูเพื่อดูส่วนผสมและวิธีทำ</p></div><div class="idea-tools"><p>คลังสูตร <b id="recipeCount">100+</b> เมนู</p><button class="random-btn" onclick="randomIdeas()">🎲 สุ่มใหม่ 8 เมนู</button></div><div class="ideas" id="ideaGrid"></div></main><main id="list" class="view"><div id="entryList" class="list"></div></main></div>
-<div class="recipe-modal" id="recipeModal" role="dialog" aria-modal="true" aria-labelledby="recipeName" onclick="if(event.target===this)closeRecipe()"><article class="recipe-box"><button class="recipe-close" onclick="closeRecipe()" aria-label="ปิดสูตร">×</button><h2 id="recipeName"></h2><div class="recipe-country" id="recipeCountry"></div><h3>วัตถุดิบ</h3><ul id="recipeIngredients"></ul><h3>วิธีทำ</h3><ol id="recipeSteps"></ol></article></div>
-<style>.bottom{grid-template-columns:repeat(5,1fr)}</style><nav class="bottom"><button class="active" data-page="add"><b>➕</b>เพิ่ม</button><button data-page="dashboard"><b>📊</b>Dashboard</button><button data-page="report"><b>📈</b>รีพอร์ต</button><button data-page="ideas"><b>🍜</b>เมนูไอเดีย</button><a class="sheet-link" href="https://docs.google.com/spreadsheets/d/1Jdw2KQM18-dLCYWxu9hw0xzxXjzX2Qx2N3Wpa8qvWdc/edit?usp=drivesdk" target="_blank" rel="noopener" aria-label="เปิดไฟล์ข้อมูลดิบหลังบ้าน"><b>🗂️</b>หลังบ้าน</a></nav><script src="old-data.js"></script><script src="recipe-data.js"></script><script>
-const KEY='www_data',MONTHS=['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];let data=JSON.parse(localStorage.getItem(KEY)||'[]');function guessCat(x){if(x.t==='in')return 'ขายอาหาร';let s=x.ds;if(/กล่อง|ถุง|ถุงมือ/.test(s))return 'กล่อง/ถุง';if(/ค่ารถ|ค่าส่ง/.test(s))return 'ค่าส่ง/ค่ารถ';if(/บุหรี่|ครีม|ยา|โทรศัพท์|wallet|แตงโม|ขนม|อาหารแมว|สุกี้|รีดผ้า|ทำบุญ|ค่ากับข้าว/.test(s))return 'ค่าใช้จ่ายส่วนตัว';if(/หมู|ไก่|ผัก|เส้น|มะนาว|ไข่|ซอส|เครื่องปรุง|น้ำมัน|ลูกชิ้น|ปูอัด|วุ้น|ถั่ว|น้ำตาล|ข้าว|กะเพรา|กระเทียม|หอม|พริก|แคป/.test(s))return 'วัตถุดิบ';return 'อื่น ๆ'}if(window.OLD_DATA?.length){let seen=new Set(data.map(x=>`${x.d}|${x.t}|${x.ds}|${x.a}`));window.OLD_DATA.forEach((x,i)=>{let key=`${x.d}|${x.t}|${x.ds}|${x.a}`;if(!seen.has(key)){data.push({...x,c:guessCat(x),id:690800000+i});seen.add(key)}});data.sort((a,b)=>b.d.localeCompare(a.d)||b.id-a.id);localStorage.setItem(KEY,JSON.stringify(data))}const $=id=>document.getElementById(id),fmt=n=>(+n||0).toLocaleString('th-TH'),today=()=>new Date().toLocaleDateString('en-CA'),monthKey=d=>{let x=new Date(d+'T00:00:00');return `${x.getFullYear()}-${x.getMonth()}`},currentMonth=()=>monthKey(today());function save(){localStorage.setItem(KEY,JSON.stringify(data))}function show(page){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===page));document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));scrollTo(0,0)}document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>show(b.dataset.page));
-const IMPORT_FIX_KEY='www_import_fix_202608_v3';if(window.OLD_DATA?.length&&!localStorage.getItem(IMPORT_FIX_KEY)){data=data.filter(x=>!(Number.isInteger(x.id)&&x.id>=690800000&&x.id<691000000));let seen=new Set(data.map(x=>`${x.d}|${x.t}|${x.ds}|${x.a}`));window.OLD_DATA.forEach((x,i)=>{let key=`${x.d}|${x.t}|${x.ds}|${x.a}`;if(!seen.has(key)){data.push({...x,c:x.c||guessCat(x),id:690800000+i});seen.add(key)}});data.sort((a,b)=>b.d.localeCompare(a.d)||b.id-a.id);save();localStorage.setItem(IMPORT_FIX_KEY,'1')}
-if(window.OLD_DATA?.length){let categoryMap=new Map(window.OLD_DATA.map(x=>[`${x.d}|${x.t}|${x.ds}|${x.a}`,x.c]));data.forEach(x=>{let c=categoryMap.get(`${x.d}|${x.t}|${x.ds}|${x.a}`);if(c)x.c=c});save()}
-function showDashboardCategory(category){let rows=data.filter(x=>x.t==='ex'&&monthKey(x.d)===currentMonth()&&(x.c||'อื่น ๆ')===category),items={};rows.forEach(x=>items[x.ds]=(items[x.ds]||0)+x.a);let list=Object.entries(items).sort((a,b)=>b[1]-a[1]),total=rows.reduce((s,x)=>s+x.a,0);$('categoryDetailTitle').textContent=category+' '+fmt(total)+' บาท';$('categoryDetailSummary').textContent=list.length+' รายการ · เรียงจากใช้มากที่สุด';$('categoryDetailRows').innerHTML=list.map(([name,amount])=>`<div class="detail-line"><span>${name}</span><b>${fmt(amount)} ฿</b></div>`).join('');$('dashboardCategoryDetail').classList.add('open');$('dashboardCategoryDetail').scrollIntoView({behavior:'smooth',block:'nearest'})}
-function addEntry(){let d=$('date').value,t=$('type').value,ds=$('description').value.trim(),a=+$('amount').value,c=$('category').value;if(!d||!ds||!a){alert('กรอกวันที่ รายการ และจำนวนเงินให้ครบ');return}data.unshift({id:Date.now(),d,t,ds,a,c});save();$('description').value='';$('amount').value='';render();show('dashboard')}
-function removeEntry(id){if(!confirm('ลบรายการนี้ใช่ไหม?'))return;data=data.filter(x=>x.id!==id);save();render()}
-function render(){let cm=currentMonth(),tm=today(),mi=0,me=0,ti=0,te=0,saleDates=new Set,cat={};data.forEach(x=>{if(monthKey(x.d)===cm){if(x.t==='in'){mi+=x.a;saleDates.add(x.d)}else{me+=x.a;cat[x.c||'อื่น ๆ']=(cat[x.c||'อื่น ๆ']||0)+x.a}}if(x.d===tm){x.t==='in'?ti+=x.a:te+=x.a}});let bal=mi-me;$('income').textContent=fmt(mi);$('expense').textContent=fmt(me);$('balance').textContent=(bal>=0?'+':'−')+fmt(Math.abs(bal))+' ฿';$('balance').className='amount '+(bal>=0?'green':'red');$('margin').textContent=mi?Math.round(bal/mi*100)+'%':'0%';$('todayIncome').textContent=fmt(ti)+' ฿';$('todayExpense').textContent=fmt(te)+' ฿';$('saleDays').textContent=saleDates.size+' วัน';$('avgIncome').textContent=fmt(saleDates.size?mi/saleDates.size:0)+' ฿';let cats=Object.entries(cat).sort((a,b)=>b[1]-a[1]),max=cats[0]?.[1]||1;$('categoryBars').innerHTML=cats.length?cats.map(([c,v])=>`<div class="bar-row"><span>${c}</span><div class="bar"><i style="width:${v/max*100}%"></i></div><b>${fmt(v)}</b></div>`).join(''):'<div class="empty">ยังไม่มีรายจ่ายเดือนนี้</div>';$('dailyTip').textContent=bal<0?'⚠️ เดือนนี้รายจ่ายมากกว่ารายรับ '+fmt(Math.abs(bal))+' บาท ลองดูหมวดที่ใช้เงินมากที่สุด':mi?'💡 เดือนนี้เหลือ '+Math.round(bal/mi*100)+'% ของรายรับ บันทึกทุกวันเพื่อให้ตัวเลขแม่นยำ':'💡 เริ่มบันทึกรายรับและรายการจ่ายทุกวัน เพื่อให้เห็นกำไรจริงของร้าน';$('entryList').innerHTML=data.slice(0,100).map(x=>`<div class="item"><div><b>${x.ds}</b><small>${x.c||'อื่น ๆ'} · ${x.d}</small></div><div class="money ${x.t==='in'?'green':'red'}">${x.t==='in'?'+':'−'}${fmt(x.a)}</div><button class="del" onclick="removeEntry(${x.id})">ลบ</button></div>`).join('')||'<div class="empty">ยังไม่มีรายการ</div>';renderReport()}
-const renderBase=render;render=function(){renderBase();let cat={};data.forEach(x=>{if(x.t==='ex'&&monthKey(x.d)===currentMonth())cat[x.c||'อื่น ๆ']=(cat[x.c||'อื่น ๆ']||0)+x.a});let cats=Object.entries(cat).sort((a,b)=>b[1]-a[1]),max=cats[0]?.[1]||1;$('categoryBars').innerHTML=cats.length?cats.map(([c,v])=>`<button class="cat-button" onclick="showDashboardCategory('${c.replace(/'/g,"\\'")}')"><div class="bar-row"><span>${c}</span><div class="bar"><i style="width:${v/max*100}%"></i></div><b>${fmt(v)}</b></div></button>`).join(''):'<div class="empty">ยังไม่มีรายจ่ายเดือนนี้</div>'}
-function periodKey(d,g){let x=new Date(d+'T00:00:00'),y=x.getFullYear(),m=x.getMonth();if(g==='day')return d;if(g==='month')return `${y}-${String(m+1).padStart(2,'0')}`;if(g==='quarter')return `${y}-Q${Math.floor(m/3)+1}`;if(g==='year')return String(y);let z=new Date(x),day=(z.getDay()+6)%7;z.setDate(z.getDate()-day);return z.toLocaleDateString('en-CA')}
-function periodLabel(k,g){if(g==='day')return new Date(k+'T00:00:00').toLocaleDateString('th-TH',{day:'numeric',month:'short',year:'numeric'});if(g==='week'){let e=new Date(k+'T00:00:00');e.setDate(e.getDate()+6);return `${new Date(k+'T00:00:00').toLocaleDateString('th-TH',{day:'numeric',month:'short'})}–${e.toLocaleDateString('th-TH',{day:'numeric',month:'short',year:'2-digit'})}`}if(g==='month'){let[y,m]=k.split('-');return `${MONTHS[+m-1]} ${+y+543}`}if(g==='quarter'){let[y,q]=k.split('-Q');return `ไตรมาส ${q} / ${+y+543}`}return `ปี ${+k+543}`}
-function relatedKey(k,g,yearBack=false){if(g==='day'||g==='week'){let d=new Date(k+'T00:00:00');yearBack?d.setFullYear(d.getFullYear()-1):d.setDate(d.getDate()-(g==='week'?7:1));return d.toLocaleDateString('en-CA')}if(g==='month'){let[y,m]=k.split('-').map(Number),d=new Date(y,m-1,1);yearBack?d.setFullYear(y-1):d.setMonth(d.getMonth()-1);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`}if(g==='quarter'){let[y,q]=k.split('-Q').map(Number);if(yearBack)return `${y-1}-Q${q}`;q--;if(!q){q=4;y--}return `${y}-Q${q}`}return String(+k-1)}
-function compareText(now,old){if(!old.i&&!old.e)return 'ไม่มีข้อมูลเปรียบเทียบ';let a=now.i-now.e,b=old.i-old.e,d=a-b,p=b?Math.round(d/Math.abs(b)*100):0;return `${d>=0?'▲ ดีขึ้น':'▼ ลดลง'} ${fmt(Math.abs(d))} บาท${b?' ('+Math.abs(p)+'%)':''}`}
-let shownRecipes=[];function randomIdeas(){let pool=[...(window.NOODLE_RECIPES||[])];for(let i=pool.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]]}shownRecipes=pool.slice(0,8);$('ideaGrid').innerHTML=shownRecipes.map(r=>`<button class="idea" onclick="openRecipe(${r.id})"><h3>${r.name}</h3><p>เมนูเส้นจาก ${r.country}</p><span class="tag">แตะเพื่อดูสูตร</span></button>`).join('')}
-function openRecipe(id){let r=(window.NOODLE_RECIPES||[]).find(x=>x.id===id);if(!r)return;$('recipeName').textContent=r.name;$('recipeCountry').textContent='ต้นตำรับ/แรงบันดาลใจ: '+r.country;$('recipeIngredients').innerHTML=r.ingredients.map(x=>`<li>${x}</li>`).join('');$('recipeSteps').innerHTML=r.steps.map(x=>`<li>${x}</li>`).join('');$('recipeModal').classList.add('open');document.body.style.overflow='hidden'}function closeRecipe(){$('recipeModal').classList.remove('open');document.body.style.overflow=''}document.addEventListener('keydown',e=>{if(e.key==='Escape')closeRecipe()});$('recipeCount').textContent=(window.NOODLE_RECIPES||[]).length;
-function renderReport(reset=false){if(!$('reportGroup'))return;let g=$('reportGroup').value,groups={};data.forEach(x=>{let k=periodKey(x.d,g);groups[k]??={i:0,e:0,cat:{}};groups[k][x.t==='in'?'i':'e']+=x.a;if(x.t==='ex')groups[k].cat[x.c||'อื่น ๆ']=(groups[k].cat[x.c||'อื่น ๆ']||0)+x.a});let keys=Object.keys(groups).sort().reverse(),select=$('reportPeriod'),selected=reset?'':select.value;if(!keys.includes(selected))selected=keys[0]||periodKey(today(),g);select.innerHTML=(keys.length?keys:[selected]).map(k=>`<option value="${k}" ${k===selected?'selected':''}>${periodLabel(k,g)}</option>`).join('');let v=groups[selected]||{i:0,e:0,cat:{}},bal=v.i-v.e;$('reportIncome').textContent=fmt(v.i)+' ฿';$('reportExpense').textContent=fmt(v.e)+' ฿';$('reportBalance').textContent=(bal>=0?'+':'−')+fmt(Math.abs(bal))+' ฿';$('reportBalance').className=bal>=0?'green':'red';let prev=groups[relatedKey(selected,g)]||{i:0,e:0},yr=groups[relatedKey(selected,g,true)]||{i:0,e:0};$('previousCompare').textContent=compareText(v,prev);$('previousCompare').className=(bal-(prev.i-prev.e)>=0)?'up':'down';$('yearCompare').textContent=compareText(v,yr);$('yearCompare').className=(bal-(yr.i-yr.e)>=0)?'up':'down';let cats=Object.entries(v.cat).sort((a,b)=>b[1]-a[1]),max=cats[0]?.[1]||1;$('reportCategories').innerHTML=cats.length?cats.map(([c,n])=>`<div class="bar-row"><span>${c}</span><div class="bar"><i style="width:${n/max*100}%"></i></div><b>${fmt(n)}</b></div>`).join(''):'<div class="empty">ไม่มีค่าใช้จ่ายในช่วงนี้</div>';let picked=data.filter(x=>periodKey(x.d,g)===selected),incomeItems={},expenseItems={};picked.forEach(x=>{let box=x.t==='in'?incomeItems:expenseItems,key=x.ds||'ไม่ระบุ';box[key]??={sum:0,count:0,cat:x.c||'อื่น ๆ'};box[key].sum+=x.a;box[key].count++});let incomes=Object.entries(incomeItems).sort((a,b)=>b[1].sum-a[1].sum),expenses=Object.entries(expenseItems).sort((a,b)=>b[1].sum-a[1].sum);$('reportIncomeItems').innerHTML=incomes.slice(0,12).map(([n,x])=>`<tr><td>${n}</td><td>${x.count}</td><td class="green">${fmt(x.sum)}</td></tr>`).join('')||'<tr><td colspan="3">ไม่มีรายรับในช่วงนี้</td></tr>';$('reportExpenseItems').innerHTML=expenses.slice(0,20).map(([n,x],i)=>`<tr><td>${i===0?'🔥 ':''}${n}</td><td>${x.cat}</td><td class="red">${fmt(x.sum)}</td></tr>`).join('')||'<tr><td colspan="3">ไม่มีรายจ่ายในช่วงนี้</td></tr>';$('reportRows').innerHTML=keys.slice(0,24).map(k=>{let x=groups[k],b=x.i-x.e;return `<tr><td>${periodLabel(k,g)}</td><td class="green">${fmt(x.i)}</td><td class="red">${fmt(x.e)}</td><td class="${b>=0?'green':'red'}">${b>=0?'+':'−'}${fmt(Math.abs(b))}</td></tr>`}).join('')||'<tr><td colspan="4">ยังไม่มีข้อมูล</td></tr>'}
-$('date').value=today();$('type').onchange=()=>{$('category').value=$('type').value==='in'?'ขายอาหาร':'วัตถุดิบ'};randomIdeas();render();</script>
-<script>
-window.SYNC_WEB_APP_URL='https://script.google.com/macros/s/AKfycbzJS4YRUzMfSSH0aFenTlPG5J376isvgFxExEZvVynuPbAxRNALPVlue90VhhZrvPeE/exec';let sheetSyncBusy=false,authToken='public';
-function setSync(ok,title,detail){$('syncTitle').textContent=title;$('syncTitle').style.color=ok?'#67e6a5':'#ffb15f';$('syncDetail').textContent=detail||''}
-function lockApp(message=''){document.body.classList.add('locked');$('loginScreen').style.display='flex';$('loginError').textContent=message;$('authEmail').textContent=''}
-function unlockApp(email){document.body.classList.remove('locked');$('loginScreen').style.display='none';$('authEmail').textContent=' · '+email}
-function signOutApp(){authToken='';sessionStorage.removeItem('wanwan_google_token');if(window.google?.accounts?.id){google.accounts.id.disableAutoSelect();google.accounts.id.cancel()}if(window.AndroidAuth?.signOut)AndroidAuth.signOut();lockApp('ออกจากระบบแล้ว เลือกบัญชีใหม่ได้เลย')}
-function receiveNativeGoogleToken(token){handleGoogleCredential({credential:token})}
-async function handleGoogleCredential(response){authToken=response.credential||'';sessionStorage.setItem('wanwan_google_token',authToken);$('loginError').textContent='กำลังตรวจสอบสิทธิ์…';await syncFromSheet(true,true)}
-function initGoogleLogin(){unlockApp('ใช้งานได้ทันที');syncFromSheet()}
-async function syncFromSheet(manual=false,loginAttempt=false){if(sheetSyncBusy||!authToken)return;if(!navigator.onLine){if(!document.body.classList.contains('locked'))setSync(false,'ออฟไลน์ — ใช้ข้อมูลล่าสุดในเครื่อง','จะอัปเดตอีกครั้งเมื่อมีอินเทอร์เน็ต');return}sheetSyncBusy=true;if($('syncBtn'))$('syncBtn').disabled=true;try{let response=await fetch(SYNC_WEB_APP_URL+'?action=list&idToken='+encodeURIComponent(authToken)+'&t='+Date.now(),{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);let result=await response.json();if(!result.ok){if(/LOGIN|ACCESS/.test(result.error||'')){authToken='';sessionStorage.removeItem('wanwan_google_token');lockApp(result.error==='ACCESS_DENIED'?'บัญชีนี้ไม่ได้รับอนุญาต':'กรุณาเข้าสู่ระบบใหม่');return}throw Error(result.error||'รูปแบบข้อมูลไม่ถูกต้อง')}data=result.rows.map((x,i)=>({id:Number(x.row)||700000000+i,d:String(x.date||''),t:x.type==='รายรับ'?'in':'ex',c:String(x.category||'อื่น ๆ'),ds:String(x.description||'ไม่ระบุ'),a:Number(x.amount)||0,source:'sheet'})).filter(x=>/^\d{4}-\d{2}-\d{2}$/.test(x.d)&&x.a>0);data.sort((a,b)=>b.d.localeCompare(a.d)||b.id-a.id);save();render();unlockApp(result.email||'ผู้ใช้ที่ได้รับอนุญาต');let now=new Date().toLocaleTimeString('th-TH',{hour:'2-digit',minute:'2-digit'});setSync(true,'เชื่อมกับหลังบ้านแล้ว','อัปเดตล่าสุด '+now+' · '+data.length+' รายการ')}catch(error){if(loginAttempt)lockApp('เข้าสู่ระบบไม่สำเร็จ กรุณาลองใหม่');else if(!document.body.classList.contains('locked'))setSync(false,'ยังเชื่อมหลังบ้านไม่ได้','กำลังแสดงข้อมูลล่าสุดที่เก็บไว้ในเครื่อง'+(manual?' · ลองใหม่อีกครั้ง':''))}finally{sheetSyncBusy=false;if($('syncBtn'))$('syncBtn').disabled=false}}
-addEntry=async function(){let d=$('date').value,t=$('type').value,ds=$('description').value.trim(),a=+$('amount').value,c=$('category').value;if(!d||!ds||!a){alert('กรอกวันที่ รายการ และจำนวนเงินให้ครบ');return}let btn=$('saveBtn'),requestId='APP-'+Date.now()+'-'+Math.random().toString(36).slice(2,7);btn.disabled=true;btn.textContent='กำลังบันทึกลง Google Sheet…';try{let params=new URLSearchParams({action:'add',idToken:authToken,date:d,type:t==='in'?'รายรับ':'รายจ่าย',category:c,description:ds,amount:String(a),boxes:'',channel:'แอป',note:'บันทึกจากแอป '+requestId,t:String(Date.now())});let response=await fetch(SYNC_WEB_APP_URL+'?'+params.toString(),{cache:'no-store'});if(!response.ok)throw Error('เชื่อมต่อหลังบ้านไม่ได้ (HTTP '+response.status+')');let result=await response.json();if(!result.ok)throw Error(result.error||'Google Sheet ไม่รับรายการ');$('description').value='';$('amount').value='';await syncFromSheet(true);show('dashboard')}catch(error){alert('ยังบันทึกลง Google Sheet ไม่สำเร็จ\n'+(error.message||'กรุณาลองใหม่'))}finally{btn.disabled=false;btn.textContent='💾 บันทึกลงหลังบ้าน'}};
-initGoogleLogin();setInterval(syncFromSheet,60000);window.addEventListener('focus',()=>syncFromSheet());window.addEventListener('online',()=>syncFromSheet(true));
-</script><script>document.querySelectorAll('img[src="logo-wanwan.png"]').forEach(image=>image.src='logo-wanwan.png?v=logo2')</script></body></html>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#ea580c">
+  <title>วุ่นวายโภชนา V2.0 — ระบบบัญชีรายรับ-รายจ่าย & วิเคราะห์ธุรกิจ</title>
+  <link rel="icon" href="logo-wanwan.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- TOP HEADER -->
+  <header class="top-header">
+    <a href="#" class="header-brand" onclick="switchTab('add'); return false;">
+      <img src="logo-wanwan.png" alt="โลโก้วุ่นวายโภชนา">
+      <div class="brand-text">
+        <h1>วุ่นวายโภชนา</h1>
+        <small>อร่อยจนวุ่นวาย</small>
+      </div>
+    </a>
+    <div class="header-actions">
+      <div class="sync-pill" onclick="syncAllFromGoogleSheet()" title="กดเพื่อซิงก์ข้อมูลกับ Google Sheets">
+        <span class="sync-dot" id="syncDot"></span>
+        <span id="syncText">ชีต Google ออนไลน์</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- MONTHLY HERO BANNER -->
+    <section class="hero-card">
+      <div class="hero-header">
+        <span class="hero-label">เงินคงเหลือเดือนนี้</span>
+        <span class="hero-month-tag" id="heroMonthName">เดือนนี้</span>
+      </div>
+      <div class="hero-balance green" id="heroBalance">+0 ฿</div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span>รายรับรวม</span>
+          <strong class="green" id="heroIncome">0</strong>
+        </div>
+        <div class="stat-item">
+          <span>รายจ่ายรวม</span>
+          <strong class="red" id="heroExpense">0</strong>
+        </div>
+        <div class="stat-item">
+          <span>กำไร Margin</span>
+          <strong class="amber" id="heroMargin">0%</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- NAVIGATION TABS (Desktop / Tablet) -->
+    <nav class="nav-tabs">
+      <button class="tab-btn active" data-target="add">➕ บันทึกรายการ</button>
+      <button class="tab-btn" data-target="dashboard">📊 Dashboard</button>
+      <button class="tab-btn" data-target="report">📈 รีพอร์ตสรุป</button>
+      <button class="tab-btn" data-target="ideas">🍜 เมนูเส้นไอเดีย</button>
+      <button class="tab-btn" data-target="data">🗂️ จัดการข้อมูล & ชีต</button>
+    </nav>
+
+    <!-- VIEW 1: ADD TRANSACTION -->
+    <main id="add" class="view-panel active">
+      <section class="card">
+        <div class="card-title">
+          <span>📝 บันทึกรายการประจำวัน</span>
+          <small style="color:var(--text-dim);font-weight:normal;">เข้าถึงสะดวก ใช้ง่าย</small>
+        </div>
+
+        <!-- Type Selector -->
+        <div class="type-toggle-group">
+          <button type="button" class="type-toggle-btn active in" id="typeInBtn">💰 รายรับ (ยอดขาย)</button>
+          <button type="button" class="type-toggle-btn" id="typeExBtn">🛒 รายจ่าย (ต้นทุน/ค่าใช้จ่าย)</button>
+        </div>
+
+        <form id="addTxnForm">
+          <!-- Date and Category -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="txnDate">วันที่เกิดรายการ</label>
+              <div style="display:flex;gap:6px;">
+                <input type="date" id="txnDate" class="form-control" required>
+                <button type="button" class="chip-btn" id="setTodayBtn">วันนี้</button>
+                <button type="button" class="chip-btn" id="setYesterdayBtn">เมื่อวาน</button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="txnCategory">หมวดหมู่</label>
+              <select id="txnCategory" class="form-control">
+                <option value="ขายอาหาร">ขายอาหาร</option>
+                <option value="วัตถุดิบ">วัตถุดิบ</option>
+                <option value="กล่อง/ถุง">กล่อง/ถุง</option>
+                <option value="ค่าส่ง/ค่ารถ">ค่าส่ง/ค่ารถ</option>
+                <option value="ค่าใช้จ่ายส่วนตัว">ค่าใช้จ่ายส่วนตัว</option>
+                <option value="อื่น ๆ">อื่น ๆ</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Description & Quick Chips -->
+          <div class="form-group">
+            <label class="form-label" for="txnDesc">ชื่อรายการ</label>
+            <input type="text" id="txnDesc" class="form-control" placeholder="เช่น ส่งก๋วยเตี๋ยว, ค่าหมู, ผักสด, ค่ารถ" required autocomplete="off">
+            <div class="quick-chips">
+              <button type="button" class="chip-btn" data-type="in" data-cat="ขายอาหาร" data-text="ส่งก๋วยเตี๋ยว">🍜 ส่งก๋วยเตี๋ยว</button>
+              <button type="button" class="chip-btn" data-type="in" data-cat="ขายอาหาร" data-text="ค่ากับข้าว">🍲 ค่ากับข้าว</button>
+              <button type="button" class="chip-btn" data-type="ex" data-cat="วัตถุดิบ" data-text="หมู">🥩 หมู</button>
+              <button type="button" class="chip-btn" data-type="ex" data-cat="วัตถุดิบ" data-text="ผัก">🥬 ผัก</button>
+              <button type="button" class="chip-btn" data-type="ex" data-cat="วัตถุดิบ" data-text="เส้นก๋วยเตี๋ยว">🥢 เส้นก๋วยเตี๋ยว</button>
+              <button type="button" class="chip-btn" data-type="ex" data-cat="ค่าส่ง/ค่ารถ" data-text="ค่ารถ">🛵 ค่ารถ</button>
+              <button type="button" class="chip-btn" data-type="ex" data-cat="กล่อง/ถุง" data-text="กล่อง/ถุง">📦 กล่อง/ถุง</button>
+            </div>
+          </div>
+
+          <!-- Amount and Boxes/Channel -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="txnAmount">จำนวนเงิน (บาท)</label>
+              <input type="number" step="any" min="0" id="txnAmount" class="form-control" placeholder="0.00" inputmode="decimal" required style="font-size:18px;font-weight:700;">
+            </div>
+            <div class="form-group" id="boxesGroup">
+              <label class="form-label" for="txnBoxes">จำนวนกล่อง (ถ้ามี)</label>
+              <input type="number" id="txnBoxes" class="form-control" placeholder="เช่น 10">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="txnChannel">ช่องทางการเงิน</label>
+              <select id="txnChannel" class="form-control">
+                <option value="เงินสด">เงินสด</option>
+                <option value="โอนเงิน">โอนเงิน / พร้อมเพย์</option>
+                <option value="แอป">แอปวุ่นวายโภชนา</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="txnNote">หมายเหตุ (ถ้ามี)</label>
+              <input type="text" id="txnNote" class="form-control" placeholder="ระบุเพิ่มเติม">
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary" style="margin-top:6px;">
+            💾 บันทึกลงหลังบ้าน
+          </button>
+        </form>
+      </section>
+
+      <!-- Recent Transactions Section -->
+      <section class="card">
+        <div class="card-title">
+          <span>🕒 รายการล่าสุดที่บันทึก</span>
+          <button class="chip-btn" onclick="exportCsv()">📥 ดาวน์โหลด CSV</button>
+        </div>
+        <div class="txn-list" id="recentTxnList">
+          <!-- Populated by app.js -->
+        </div>
+      </section>
+    </main>
+
+    <!-- VIEW 2: DASHBOARD -->
+    <main id="dashboard" class="view-panel">
+      <div class="dash-kpis">
+        <div class="dash-kpi">
+          <span>ยอดขายวันนี้</span>
+          <strong class="green" id="dashTodayIncome">0 ฿</strong>
+        </div>
+        <div class="dash-kpi">
+          <span>จ่ายวันนี้</span>
+          <strong class="red" id="dashTodayExpense">0 ฿</strong>
+        </div>
+        <div class="dash-kpi">
+          <span>กำไรสุทธิวันนี้</span>
+          <strong id="dashTodayBalance">0 ฿</strong>
+        </div>
+        <div class="dash-kpi">
+          <span>จำนวนกล่องวันนี้</span>
+          <strong class="amber" id="dashTodayBoxes">0 กล่อง</strong>
+        </div>
+        <div class="dash-kpi">
+          <span>วันที่มีรายรับ (เดือนนี้)</span>
+          <strong class="blue" id="dashSaleDays">0 วัน</strong>
+        </div>
+        <div class="dash-kpi">
+          <span>ยอดขายเฉลี่ยต่อวัน</span>
+          <strong id="dashAvgIncome">0 ฿</strong>
+        </div>
+      </div>
+
+      <!-- Category Breakdown Card -->
+      <section class="card">
+        <div class="card-title">
+          <span>📊 ค่าใช้จ่ายเดือนนี้ แยกตามหมวด</span>
+          <small style="color:var(--text-dim);font-weight:normal;">แตะเพื่อดูรายการย่อย</small>
+        </div>
+        <div class="category-bars" id="dashCategoryBars">
+          <!-- Populated by dashboard.js -->
+        </div>
+
+        <!-- Drill-down Box -->
+        <div class="drilldown-box" id="dashDrilldownBox">
+          <div class="drilldown-header">
+            <strong id="drilldownTitle" style="color:var(--amber);"></strong>
+            <button type="button" class="btn-del" onclick="closeCategoryDrilldown()">✕ ปิด</button>
+          </div>
+          <div id="drilldownList" style="margin-top:8px;"></div>
+        </div>
+
+        <!-- Daily Tip -->
+        <div class="tip-box" id="dashDailyTip">
+          💡 เริ่มต้นบันทึกรายรับและรายจ่ายทุกวัน เพื่อเห็นกำไรแท้จริงของร้าน
+        </div>
+      </section>
+    </main>
+
+    <!-- VIEW 3: REPORT -->
+    <main id="report" class="view-panel">
+      <section class="card">
+        <div class="card-title">
+          <span>📈 สรุปผลประกอบการ & วิเคราะห์รอบเวลา</span>
+        </div>
+
+        <div class="report-filters">
+          <div class="form-group">
+            <label class="form-label">รอบเวลา</label>
+            <select id="reportGroup" class="form-control" onchange="renderReport(true)">
+              <option value="month" selected>รายเดือน</option>
+              <option value="week">รายสัปดาห์</option>
+              <option value="day">รายวัน</option>
+              <option value="quarter">รายไตรมาส</option>
+              <option value="year">รายปี</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">เลือกงวด</label>
+            <select id="reportPeriod" class="form-control" onchange="renderReport()"></select>
+          </div>
+        </div>
+
+        <div class="dash-kpis">
+          <div class="dash-kpi">
+            <span>รายรับประจำงวด</span>
+            <strong class="green" id="reportIncome">0 ฿</strong>
+          </div>
+          <div class="dash-kpi">
+            <span>รายจ่ายประจำงวด</span>
+            <strong class="red" id="reportExpense">0 ฿</strong>
+          </div>
+          <div class="dash-kpi">
+            <span>คงเหลือ / กำไรสุทธิ</span>
+            <strong id="reportBalance">0 ฿</strong>
+          </div>
+          <div class="dash-kpi">
+            <span>อัตรากำไร (Margin)</span>
+            <strong class="amber" id="reportMargin">0%</strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- Top Income Items -->
+      <section class="card">
+        <div class="card-title">
+          <span>💚 รายรับมาจากอะไร (Top Sales)</span>
+        </div>
+        <div class="report-table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr>
+                <th>รายการ</th>
+                <th>จำนวนครั้ง</th>
+                <th>ยอดรวม</th>
+              </tr>
+            </thead>
+            <tbody id="reportIncomeItems"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Top Expense Items -->
+      <section class="card">
+        <div class="card-title">
+          <span>🔴 รายจ่ายไปกับอะไร (Top Expenses)</span>
+        </div>
+        <div class="report-table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr>
+                <th>รายการ</th>
+                <th>หมวดหมู่</th>
+                <th>ยอดรวม</th>
+              </tr>
+            </thead>
+            <tbody id="reportExpenseItems"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Historical Table -->
+      <section class="card">
+        <div class="card-title">
+          <span>📋 สรุปย้อนหลัง</span>
+          <button class="chip-btn" onclick="window.print()">🖨️ พิมพ์รีพอร์ต</button>
+        </div>
+        <div class="report-table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr>
+                <th>ช่วงเวลา</th>
+                <th>รายรับ</th>
+                <th>รายจ่าย</th>
+                <th>คงเหลือ</th>
+              </tr>
+            </thead>
+            <tbody id="reportHistoryRows"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- VIEW 4: RECIPE IDEAS -->
+    <main id="ideas" class="view-panel">
+      <section class="card">
+        <div class="card-title">
+          <span>🍜 เมนูเส้นไอเดียทั่วโลก (<span id="recipeTotalCount">120+</span> เมนู)</span>
+          <button class="chip-btn" style="background:var(--primary);color:#fff;border-color:var(--primary);" onclick="randomizeRecipes()">🎲 สุ่ม 8 เมนู</button>
+        </div>
+        
+        <div class="recipe-tools">
+          <input type="text" id="recipeSearch" class="form-control recipe-search" placeholder="🔍 ค้นหาเมนู เช่น ผัดไทย, ราเมง, ต้มยำ, กะเพรา, หมู...">
+        </div>
+
+        <div class="quick-chips" style="margin-bottom:14px;">
+          <button type="button" class="chip-btn country-btn active" data-country="all">ทั้งหมด</button>
+          <button type="button" class="chip-btn country-btn" data-country="ไทย">🇹🇭 ไทย</button>
+          <button type="button" class="chip-btn country-btn" data-country="จีน">🇨🇳 จีน</button>
+          <button type="button" class="chip-btn country-btn" data-country="ญี่ปุ่น">🇯🇵 ญี่ปุ่น</button>
+          <button type="button" class="chip-btn country-btn" data-country="เกาหลี">🇰🇷 เกาหลี</button>
+          <button type="button" class="chip-btn country-btn" data-country="อิตาลี">🇮🇹 อิตาลี</button>
+        </div>
+
+        <div class="recipe-grid" id="recipeGrid">
+          <!-- Populated by recipes.js -->
+        </div>
+      </section>
+    </main>
+
+    <!-- VIEW 5: DATA MANAGEMENT & GOOGLE DRIVE -->
+    <main id="data" class="view-panel">
+      <!-- Cloud Links -->
+      <section class="card">
+        <div class="card-title">
+          <span>☁️ ฐานข้อมูล Google Cloud & Google Drive</span>
+        </div>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">
+          ระบบเชื่อมต่อฐานข้อมูลโดยตรงกับ Google Sheets และ Google Drive ของคุณ:
+        </p>
+
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="https://docs.google.com/spreadsheets/d/1Jdw2KQM18-dLCYWxu9hw0xzxXjzX2Qx2N3Wpa8qvWdc/edit?usp=drivesdk" target="_blank" rel="noopener" class="btn-primary" style="background:#0f766e;text-decoration:none;">
+            📊 เปิดดู Google Sheets หลังบ้าน (ชีต ข้อมูลดิบ)
+          </a>
+          <a href="https://drive.google.com/drive/folders/1ZcJAGvFH53J0oRDY-Cw3ba-hN4_mIW1i?usp=sharing" target="_blank" rel="noopener" class="btn-primary" style="background:#1d4ed8;text-decoration:none;">
+            📁 เปิดโฟลเดอร์ Google Drive (วุ่นวายโภชนา V2.0)
+          </a>
+        </div>
+
+        <div style="margin-top:16px;border-top:1px solid var(--border);padding-top:14px;">
+          <label class="form-label">Google Apps Script Webhook URL</label>
+          <div style="display:flex;gap:8px;">
+            <input type="text" id="settingWebhook" class="form-control" value="https://script.google.com/macros/s/AKfycbzJS4YRUzMfSSH0aFenTlPG5J376isvgFxExEZvVynuPbAxRNALPVlue90VhhZrvPeE/exec" readonly>
+            <button type="button" class="chip-btn" onclick="syncAllFromGoogleSheet()">🔄 ซิงก์ทันที</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Backup and Restore -->
+      <section class="card">
+        <div class="card-title">
+          <span>💾 สำรองและกู้คืนข้อมูล</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <button type="button" class="btn-primary" style="background:#334155;" onclick="exportCsv()">
+            📥 ดาวน์โหลด CSV
+          </button>
+          <button type="button" class="btn-primary" style="background:#334155;" onclick="exportJson()">
+            💾 สำรอง JSON
+          </button>
+        </div>
+
+        <div style="margin-top:14px;display:flex;justify-content:space-between;align-items:center;">
+          <label class="chip-btn" style="cursor:pointer;">
+            📤 นำเข้าไฟล์ JSON <input type="file" accept=".json" style="display:none;" onchange="importJsonFile(event)">
+          </label>
+          <button type="button" class="btn-del" onclick="resetToDefaultDriveData()">
+            🔄 รีเซ็ตข้อมูลตั้งต้น (269 รายการ)
+          </button>
+        </div>
+      </section>
+
+      <!-- Raw Data Table -->
+      <section class="card">
+        <div class="card-title">
+          <span>📋 ตารางข้อมูลทั้งหมด (<span id="totalRowCount">0</span>)</span>
+        </div>
+        <div class="form-group">
+          <input type="text" id="dataSearchInput" class="form-control" placeholder="🔍 ค้นหาในตาราง เช่น วันที่, ชื่อรายการ, หมวด, เงิน...">
+        </div>
+        <div class="report-table-wrap" style="max-height:450px;overflow-y:auto;">
+          <table class="report-table">
+            <thead>
+              <tr>
+                <th>รหัส</th>
+                <th>วันที่</th>
+                <th>ประเภท</th>
+                <th>หมวด</th>
+                <th>รายการ</th>
+                <th style="text-align:right;">จำนวนเงิน</th>
+                <th style="text-align:center;">จัดการ</th>
+              </tr>
+            </thead>
+            <tbody id="allDataRows"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <!-- RECIPE DETAIL MODAL -->
+  <div class="modal-overlay" id="recipeModal" onclick="if(event.target===this)closeRecipeModal()">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeRecipeModal()">✕</button>
+      <h2 id="modalRecipeName" style="color:var(--amber);margin-bottom:4px;">ชื่อเมนู</h2>
+      <span class="recipe-tag" id="modalRecipeCountry" style="margin-bottom:16px;">ต้นตำรับ</span>
+      
+      <h3 style="color:#fff;font-size:15px;margin-top:16px;margin-bottom:6px;">🛒 เครื่องปรุงและวัตถุดิบ</h3>
+      <ul id="modalRecipeIngredients" style="padding-left:20px;font-size:14px;"></ul>
+
+      <h3 style="color:#fff;font-size:15px;margin-top:16px;margin-bottom:6px;">👨‍🍳 ขั้นตอนและวิธีทำ</h3>
+      <ol id="modalRecipeSteps" style="padding-left:20px;font-size:14px;color:var(--text);"></ol>
+    </div>
+  </div>
+
+  <!-- MOBILE BOTTOM NAVIGATION DOCK -->
+  <nav class="bottom-nav">
+    <button class="bottom-btn active" data-target="add">
+      <span class="icon">➕</span>
+      <span>บันทึก</span>
+    </button>
+    <button class="bottom-btn" data-target="dashboard">
+      <span class="icon">📊</span>
+      <span>แดชบอร์ด</span>
+    </button>
+    <button class="bottom-btn" data-target="report">
+      <span class="icon">📈</span>
+      <span>รีพอร์ต</span>
+    </button>
+    <button class="bottom-btn" data-target="ideas">
+      <span class="icon">🍜</span>
+      <span>เมนูไอเดีย</span>
+    </button>
+    <button class="bottom-btn" data-target="data">
+      <span class="icon">🗂️</span>
+      <span>ฐานข้อมูล</span>
+    </button>
+  </nav>
+
+  <!-- SCRIPTS -->
+  <script src="js/initial_data.js"></script>
+  <script src="js/recipes_data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/report.js"></script>
+  <script src="js/recipes.js"></script>
+  <script src="js/data_manage.js"></script>
+
+</body>
+</html>
